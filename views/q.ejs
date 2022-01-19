@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+          display:flex;
+          flex-direction:row;
+          justify-content:center;
+          align-items:center;
+          margin-top:6em;
+           
+            
+        }
+        .media{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            
+        }
+        button{
+            background-color:purple;
+            width:6em;
+            height:6em;
+        }
+        button:hover{
+            background-color:rgb(0, 128, 6);
+            width:6em;
+            height:6em;
+        }
+        .click{
+            display:flex;
+            /* background-color:red; */
+        }
+        .up{
+            display:flex;
+            justify-content:center;
+            /* background-color:green; */
+        }
+        .down{
+            display:flex;
+            justify-content:center;
+            /* background-color:green; */
+        }
+        .container{
+            /* background-color:blue; */
+           
+            display:flex;
+           border-radius:60%;
+           flex-direction:row;
+           justify-content:center;
+          border: solid 10px black;
+          align-items:center;
+        }
+    </style>
+    <div class="container">
+    <div class="media">
+    <!-- <h1><form class='functions' method="get" action="/order">
+        <input  type="hidden" value ="0" name="start">
+        <button>open start </button>
+    </form></h1> -->
+    <div class='up' >
+    <h1  ><form  class='functions'  method="get" action="/up">
+        <input  type="hidden" value ="0" name="start">
+        <button>up </button>
+    </form></h1>
+</div>
+<div class='click'>
+    <h1 style="padding:20px;"><form  class='functions'  method="get" action="/left">
+        <input  type="hidden" value ="0" name="start">
+        <button onmousedown>left </button>
+    </form></h1>
+    <h1><form style="padding:20px;" class='functions'   method="get" action="/click">
+        <input  type="hidden" value ="0" name="start">
+        <button >click </button>
+    </form></h1>
+    <h1><form style="padding:20px;" class='functions'  method="get" action="/right">
+        <input  type="hidden" value ="0" name="start">
+        <button>right </button>
+    </div>
+    </form></h1>
+</form></h1>
+<div class="down">
+<h1><form  class='functions'  method="get" action="/down">
+    <input  type="hidden" value ="0" name="start">
+    <button>down </button>
+</form></h1>
+</div>
+
+</div>
+</div>
+
+<script>
+    
+//     window.addEventListener('deviceorientation', function(event) {
+// //   console.log(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
+// var button=document.querySelector('button');
+// button.style.backgroundColor="black"
+// });
+function handleMotionEvent(event) {
+
+var x = event.accelerationIncludingGravity.x;
+var y = event.accelerationIncludingGravity.y;
+var z = event.accelerationIncludingGravity.z;
+
+var button=document.querySelector('button');
+ body.style.backgroundColor="black"
+}
+
+window.addEventListener("devicemotion", handleMotionEvent, true);
+</script>
+</body>
+</html>

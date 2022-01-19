@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+   body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+   }
+   .sample {
+      font-size: 25px;
+      font-weight: 500;
+   }
+</style>
+</head>
+<body>
+<h1>Coordinates of mouse</h1>
+<p class="sample"></p>
+<h3>Hover the mouse over the screen to get its x and y axis position</h3>
+<div class="container"><h1>hello</h1></div>
+<script>
+   let sampleEle = document.querySelector(".sample");
+   document.body.addEventListener("mousedown", (event) => {
+      sampleEle.innerHTML = "X axis: " + event.x + " Y axis: " + event.y;
+      let samp = document.querySelector(".container")
+    //   samp.style.marginLeft = event.x+"px"
+      samp.style.marginLeft = event.x+"px"
+      samp.style.marginTop = event.y+"px"
+    
+   });
+</script>
+</body>
+</html>

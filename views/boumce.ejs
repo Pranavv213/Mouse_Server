@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    window.ondevicemotion = function(event) {
+        var x = event.accelerationIncludingGravity.x;  
+var y = event.accelerationIncludingGravity.y;  
+var z = event.accelerationIncludingGravity.z; 
+window.ondevicemotion = function(event) {
+
+accX = Math.round(event.accelerationIncludingGravity.x*10) / 10;  
+accY = Math.round(event.accelerationIncludingGravity.y*10) / 10;  
+        
+movement = 10;
+        
+xA = -(accX / 10) * movement;
+yA = -(accY / 10) * movement;
+$('.box').css({'left' : xA+'px', 'top' : yA+'px', 
+    'box-shadow' : ''+xA+'px '+yA+'px 10px rgba(0,0,0,0.3)'});
+	    
+    bX = -(xA*2)-100;
+    bY = -(yA*2)-300;
+	    
+    $('#container').css({'background-position' : bX+'px '+bY+'px'});
+
+}
+window.ondevicemotion = function(event) {  
+
+accX = Math.round(event.accelerationIncludingGravity.x*10) / 10;  
+accY = Math.round(event.accelerationIncludingGravity.y*10) / 10;  
+movement = 20;
+		
+        xA = (width/2) - (accX*movement);
+        yA = (height/2) - (accY*movement);
+            
+        bAR = Math.abs((xA-width/2) / (movement*20)); 
+        bAL = Math.abs((xA-width/2) / (movement*20));
+        bAT = Math.abs((yA-height/2) / (movement*20));
+        bAB = Math.abs((yA-height/2) / (movement*20));
+        
+        if(xA > (width/2)) { bAL = 0; } else if(xA < (width/2)) { bAR = 0; }
+        if(yA < (height/2)) { bAB = 0; } else if(yA > (height/2)) { bAT = 0; }
+    
+        $('.right-edge').css({'box-shadow' : 'inset 0 0 500px 500px rgba(0,0,0,'+bAR+')'});
+        $('.left-edge').css({'box-shadow' : 'inset 0 0 500px 500px rgba(0,0,0,'+bAL+')'});  
+        $('.top-edge').css({'box-shadow' : 'inset 0 0 500px 500px rgba(0,0,0,'+bAT+')'});
+        $('.bottom-edge').css({'box-shadow' : 'inset 0 0 500px 500px rgba(0,0,0,'+bAB+')'}); 
+            
+        $('#container').css({'transform-origin' : xA+'px '+yA+'px'});
+    
+    }
+    </script>
+</body>
+</html>
